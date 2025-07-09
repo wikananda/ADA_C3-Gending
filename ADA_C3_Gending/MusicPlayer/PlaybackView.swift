@@ -30,7 +30,7 @@ struct PlaybackView: View {
                 
                 Image(.dummy)
                     .resizable()
-                    .frame(width: 375, height: 375)
+                    .frame(width: 350, height: 350)
                     .aspectRatio(contentMode: .fill)
                     .cornerRadius(20)
                 
@@ -45,8 +45,8 @@ struct PlaybackView: View {
                         .foregroundColor(.text1)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-
-                VStack(spacing: 4) {
+                
+                VStack(spacing: 0) {
                     Slider(value: $songProgress)
                         .tint(.text1)
                     HStack {
@@ -112,7 +112,7 @@ struct PlaybackView: View {
         .background(.dark2)
         .sheet(isPresented: $isShowingDetailsView) {
             DetailsView()
-//                .presentationBackground(Color.clear)
+            //                .presentationBackground(Color.clear)
                 .presentationBackground(.black)
         }
     }

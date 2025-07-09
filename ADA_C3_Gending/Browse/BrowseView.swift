@@ -26,12 +26,13 @@ struct BrowseView : View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
-                    CategoryCard(category: "Composer")
-                    CategoryCard(category: "Sanggar")
-                    CategoryCard(category: "Genre")
-                    CategoryCard(category: "Instruments")
-                    CategoryCard(category: "Ceremony")
-                    CategoryCard(category: "Performance")
+                    CategoryCard(category: "Artists", img: .lotus1)
+                    CategoryCard(category: "Periods", img: .tripleMoon3)
+                    CategoryCard(category: "Ensemble \nTypes", img: .seedOfLife1)
+                    CategoryCard(category: "Vibes", img: .lotus2)
+                    CategoryCard(category: "Contexts", img: .lotus3)
+                    CategoryCard(category: "Regions", img: .tripleMoon2)
+                    CategoryCard(category: "Albums", img: .seedOfLife3)
                 }
             }
             .padding(20)

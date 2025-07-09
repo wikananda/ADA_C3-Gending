@@ -31,7 +31,7 @@ struct SongCollectionCard: View {
                 Spacer()
                 
                 Text(count)
-                    .font(.custom("Urbanist", size: 12))
+                    .font(.custom("Urbanist", size: 16))
                     .fontWeight(.regular)
                     .foregroundColor(.text1)
                 Image(systemName: "chevron.right")

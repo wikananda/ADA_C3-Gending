@@ -125,6 +125,7 @@ struct FullSongCard: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.white.opacity(0.6), lineWidth: 0.5)
                     )
+                
                 VStack (alignment: .leading) {
                     Text(song)
                         .font(.custom("Urbanist", size: 16))

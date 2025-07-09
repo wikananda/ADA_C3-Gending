@@ -95,7 +95,7 @@ struct SongView : View {
                             .fontWeight(.bold)
                             .foregroundColor(.text1)
                         ForEach(0...2, id: \.self) { i in
-                            PopularRecordingCard()
+                            FullSongCard()
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
