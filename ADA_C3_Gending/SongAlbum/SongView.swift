@@ -16,8 +16,7 @@ struct SongView : View {
                         Image(.dummy)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                        
-                        
+    
                         LinearGradient(
                             gradient: Gradient(colors: [.clear, Color.black.opacity(0.75)]),
                             startPoint: .center,
@@ -53,7 +52,7 @@ struct SongView : View {
                     .frame(minHeight: 500)
                     
                     VStack (alignment: .leading) {
-                        Text("Popular Recording")
+                        Text("Popular Recordings")
                             .font(.custom("Urbanist", size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.text1)

@@ -27,7 +27,7 @@ struct SongCard: View {
                         .fontWeight(.bold)
                     Text("Sanggar Semara Gita")
                         .font(.custom("Urbanist", size: 12))
-                        .fontWeight(.bold)
+                        .fontWeight(.medium)
                     Spacer()
                     HStack {
                         SongTag("performance")
@@ -70,7 +70,7 @@ struct SongTag: View {
             .background(.primaryRed)
             .foregroundColor(.text1)
             .fontWeight(.medium)
-            .cornerRadius(20)
+            .cornerRadius(5)
     }
 }
 
