@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ExploreView : View {
+    let songIndices = Array(1...10)
+    
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 25) {
-                    ForEach(1...10, id: \.self) { i in
+                VStack(spacing: 5) {
+                    ForEach(songIndices.indices, id: \.self) { index in
                         SongCard()
+                        
+                        // adding divider
+                        if index != songIndices.count - 1 {
+                            Divider()
+                                .background(.text1)
+                        }
                     }
                 }
                 .padding(.horizontal)

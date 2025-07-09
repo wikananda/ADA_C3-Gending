@@ -30,7 +30,10 @@ struct SongCard: View {
                         SongTag("rindik")
                     }
                 }
+                .foregroundColor(.text1)
+                
                 Spacer()
+                
                 Image(systemName: "play.circle.fill")
                     .font(.system(size: 36))
                     .foregroundColor(.text1)
@@ -40,7 +43,7 @@ struct SongCard: View {
         .frame(maxWidth: .infinity, maxHeight: 75)
         .padding()
 //        .padding(.horizontal)
-        .background(Color.black.opacity(0.2))
+//        .background(Color.black.opacity(0.2))
         .cornerRadius(10)
     }
     
