@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailsView: View {
     @State var selectedTab: Int = 1
+    let tags = ["Magical", "Ritual", "Ceremony", "Gender Wayang", "Tri Sandhya"]
     var body: some View {
         VStack (alignment:. leading, spacing: 10){
             HStack (alignment: .top) {
@@ -22,7 +23,11 @@ struct DetailsView: View {
                             .font(.custom("Urbanist", size: 20))
                             .fontWeight(.bold)
                         HStack {
-                            SongTag("Magical")
+//                            SongTag("Magical")
+//                            SongTag("Magical")
+//                            SongTag("Magical")
+//                            SongTag("Magical")
+                            WrappingHStack(tags: tags)
                         }
                     }
                     .foregroundColor(.text1)
@@ -34,7 +39,6 @@ struct DetailsView: View {
                     .resizable()
                     .frame(width: 150, height: 150)
                     .cornerRadius(30)
-                
             }
             .padding()
             
@@ -54,7 +58,6 @@ struct DetailsView: View {
                         SimilarSongsView()
                     }
                 }
-        
             }
         }
         .background(.dark2)
@@ -178,6 +181,52 @@ struct InfoRow: View {
                 .underline(color: .text1)
         }
         .foregroundColor(.text1)
+    }
+}
+
+struct WrappingHStack: View {
+    let tags: [String]
+    
+    var body: some View {
+        GeometryReader { geometry in
+            generateContent(in: geometry)
+        }
+    }
+    
+    private func generateContent(in g: GeometryProxy) -> some View {
+        var width = CGFloat.zero
+        var height = CGFloat.zero
+        
+        return ZStack(alignment: .topLeading) {
+            ForEach(self.tags, id: \.self) { tag in
+                self.item(for: tag)
+                    .padding([.horizontal, .vertical], 5)
+                    .alignmentGuide(.leading, computeValue: { d in
+                        if (abs(width - d.width) > g.size.width) {
+                            width = 0
+                            height -= d.height
+                        }
+                        let result = width
+                        if tag == self.tags.last! {
+                            width = 0
+                        } else {
+                            width -= d.width
+                        }
+                        return result
+                    })
+                    .alignmentGuide(.top, computeValue: { d in
+                        let result = height
+                        if tag == self.tags.last! {
+                            height = 0
+                        }
+                        return result
+                    })
+            }
+        }
+    }
+    
+    private func item(for text: String) -> some View {
+        SongTag(text)
     }
 }
 
