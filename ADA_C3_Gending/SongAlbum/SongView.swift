@@ -16,8 +16,7 @@ struct SongView : View {
                         Image(.dummy)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                        
-                        
+    
                         LinearGradient(
                             gradient: Gradient(colors: [.clear, Color.black.opacity(0.75)]),
                             startPoint: .center,
