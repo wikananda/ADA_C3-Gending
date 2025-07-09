@@ -8,48 +8,86 @@
 import SwiftUI
 
 struct SongView : View {
+    @Environment(\.dismiss) var dismiss
+    @State private var isExpanded: Bool = false
+    
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    ZStack(alignment:.bottom) {
+                VStack(alignment: .center, spacing: 0) {
+                    ZStack(alignment: .bottomLeading) {
                         Image(.dummy)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-    
+                            .frame(minHeight: 500)
+
                         LinearGradient(
-                            gradient: Gradient(colors: [.clear, Color.black.opacity(0.75)]),
-                            startPoint: .center,
+                            gradient: Gradient(colors: [.clear, .black.opacity(0.8)]),
+                            startPoint: .top,
                             endPoint: .bottom
                         )
-                        
-                        VStack(spacing: 50) {
-                            VStack {
-                                Text("Merak Angelo")
-                                    .font(.custom("Urbanist", size: 32))
-                                    .foregroundColor(.text1)
-                                    .fontWeight(.bold)
-                                Text("Lorem Ipsum")
-                                    .font(.custom("Urbanist", size:16))
-                                    .foregroundColor(.text1)
-                            }
-                            HStack(spacing: 15) {
-                                Image(systemName: "play.fill")
-                                    .foregroundColor(.text1)
-                                    .fontWeight(.medium)
-                                Text("Play")
+
+                        VStack(alignment: .center, spacing: 12) {
+                            Text("Merak Angelo")
+                                .font(.custom("Urbanist", size: 32))
+                                .fontWeight(.bold)
+                            VStack(alignment: .center) {
+                                Text("Music in this context is created as a sacred offering to gods and ancestors. It's deeply spiritual and performed during temple festival...")
                                     .font(.custom("Urbanist", size: 16))
-                                    .foregroundColor(.text1)
-                                    .fontWeight(.semibold)
+                                    .fontWeight(.regular)
+                                    // Use lineLimit to show more/less text
+                                    .lineLimit(isExpanded ? nil : 2)
+                                    .multilineTextAlignment(.center)
+                                
+                                // "see more" button
+                                Button(action: {
+                                    withAnimation {
+                                        isExpanded.toggle()
+                                    }
+                                }) {
+                                    Text(isExpanded ? "see less" : "see more")
+                                        .font(.custom("Urbanist", size: 16))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.text1.opacity(0.8))
+                                }
                             }
-                            .padding(15)
-                            .frame(maxWidth: 250)
-                            .background(.primaryRed)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            
+                            Spacer().frame(height: 10)
+                            Button(action: {  }) {
+                                HStack {
+                                    Spacer()
+                                    Image(systemName: "play.fill")
+                                    Text("Play")
+                                        .fontWeight(.semibold)
+                                    Spacer()
+                                }
+                                .padding(.vertical, 12)
+                                .background(.primaryRed)
+                                .frame(width: 350)
+                                .cornerRadius(10)
+                            }
                         }
-                        .padding(.bottom, 30)
+                        .foregroundColor(.text1)
+                        .padding()
+                        .padding(.bottom, 20)
+                        
+                        VStack {
+                            HStack {
+                                Button(action: { dismiss() }) {
+                                    Image(systemName: "chevron.left")
+                                        .font(.title2.weight(.semibold))
+                                        .padding()
+                                        .background(.black.opacity(0.3))
+                                        .foregroundColor(.white)
+                                        .clipShape(Circle())
+                                }
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                        .padding()
                     }
-                    .frame(minHeight: 500)
+//                    .frame(maxHeight: 500)
                     
                     VStack (alignment: .leading) {
                         Text("Popular Recordings")
@@ -76,8 +114,8 @@ struct SongView : View {
                     .padding()
                 }
             }
-            .ignoresSafeArea(edges: .top)
             .background(.dark1)
+            .ignoresSafeArea(edges: .top)
         }
     }
 }

@@ -9,9 +9,20 @@ import SwiftUI
 
 struct DetailsView: View {
     @State var selectedTab: Int = 1
+    
     let tags = ["Magical", "Ritual", "Ceremony", "Gender Wayang", "Tri Sandhya"]
     var body: some View {
         VStack (alignment:. leading, spacing: 10){
+            Spacer(minLength: 5)
+            HStack {
+                Spacer()
+                Rectangle()
+                    .frame(width: 100, height: 5)
+                    .foregroundColor(.tertiaryGreen)
+                    .cornerRadius(5)
+                Spacer()
+            }
+            
             HStack (alignment: .top) {
                 VStack (alignment: .leading, spacing: 25){
                     InfoRow(label: "Name", value: "Merak Angelo")

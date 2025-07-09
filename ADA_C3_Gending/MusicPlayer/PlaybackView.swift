@@ -13,6 +13,8 @@ struct PlaybackView: View {
     @State private var volumeLevel: Double = 0.8
     @State private var isPlaying: Bool = true
     
+    @State private var isShowingDetailsView = false
+    
     var body: some View {
         ZStack {
             VStack (alignment: .center, spacing: 20) {
@@ -24,7 +26,7 @@ struct PlaybackView: View {
                     }
                     Spacer()
                 }
-//                .padding()
+                .padding()
                 
                 Image(.dummy)
                     .resizable()
@@ -87,7 +89,8 @@ struct PlaybackView: View {
                 Spacer()
                 
                 HStack {
-                    Button(action: {}) {
+                    Button(action: { isShowingDetailsView.toggle()
+                    }) {
                         Image(systemName: "info.circle")
                     }
                     Spacer()
@@ -107,6 +110,11 @@ struct PlaybackView: View {
         }
         .padding()
         .background(.dark2)
+        .sheet(isPresented: $isShowingDetailsView) {
+            DetailsView()
+//                .presentationBackground(Color.clear)
+                .presentationBackground(.black)
+        }
     }
 }
 
