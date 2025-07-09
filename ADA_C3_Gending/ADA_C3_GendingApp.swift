@@ -11,7 +11,7 @@ import SwiftUI
 struct ADA_C3_GendingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SuaragamView()
         }
     }
 }

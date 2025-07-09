@@ -45,6 +45,11 @@
 			path = ADA_C3_GendingUITests;
 			sourceTree = "<group>";
 		};
+		0AEC8C812E1D04320070C339 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 		0A7939502E1683BB00E4EDD3 = {
 			isa = PBXGroup;
 			children = (
+				0AEC8C812E1D04320070C339 /* Shared */,
 				0A79395B2E1683BB00E4EDD3 /* ADA_C3_Gending */,
 				0A7939692E1683BC00E4EDD3 /* ADA_C3_GendingTests */,
 				0A7939732E1683BC00E4EDD3 /* ADA_C3_GendingUITests */,
@@ -109,6 +115,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				0A79395B2E1683BB00E4EDD3 /* ADA_C3_Gending */,
+				0AEC8C812E1D04320070C339 /* Shared */,
 			);
 			name = ADA_C3_Gending;
 			packageProductDependencies = (
@@ -400,6 +407,7 @@
 				DEVELOPMENT_TEAM = 3P5R2AC794;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ADA-C3-Gending-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +436,7 @@
 				DEVELOPMENT_TEAM = 3P5R2AC794;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ADA-C3-Gending-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
