@@ -59,27 +59,45 @@ struct CategoryDetailView: View {
                         switch category {
                         case "Artists":
                             showCards {
-                                LibraryPlaylistCard()
+                                NavigationLink(destination: ArtistView()) {
+                                    LibraryPlaylistCard()
+                                }
+                                .buttonStyle(.plain)
                             }
                         case "Periods":
                             showCards {
-                                PeriodCard()
+                                NavigationLink(destination: PeriodsView()) {
+                                    PeriodCard()
+                                }
+                                .buttonStyle(.plain)
                             }
                         case "Ensemble Types":
                             showCards {
-                                OtherCard(title: "Gong Kebyar")
+                                NavigationLink(destination: EnsembleTypesView()) {
+                                    OtherCard(title: "Gong Kebyar")
+                                }
+                                .buttonStyle(.plain)
                             }
                         case "Vibes":
                             showCards {
-                                OtherCard(title: "Sacred")
+                                NavigationLink(destination: VibesView()) {
+                                    OtherCard(title: "Sacred")
+                                }
+                                .buttonStyle(.plain)
                             }
                         case "Contexts":
                             showCards {
-                                OtherCard(title: "Ritual & Ceremony")
+                                NavigationLink(destination: ContextViews()) {
+                                    OtherCard(title: "Ritual & Ceremony")
+                                }
+                                .buttonStyle(.plain)
                             }
                         case "Regions":
                             showCards {
-                                OtherCard(title: "Buleleng")
+                                NavigationLink(destination: RegionsView()) {
+                                    OtherCard(title: "Buleleng")
+                                }
+                                .buttonStyle(.plain)
                             }
                         default:
                             showCards {

@@ -7,8 +7,14 @@
 
 import SwiftUI
 
-struct ArtistView : View {
+struct PeriodsView : View {
     @State private var isExpanded: Bool = false
+    
+    var title: String = "Gong Kebyar Explosion"
+    var subtitle: String = "Periods"
+    
+    let indices = Array(1...5)
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -19,7 +25,6 @@ struct ArtistView : View {
                             .frame(minHeight: 300)
                             .aspectRatio(contentMode: .fill)
                         
-                        
                         LinearGradient(
                             gradient: Gradient(colors: [.clear, Color.black.opacity(0.75)]),
                             startPoint: .center,
@@ -28,11 +33,11 @@ struct ArtistView : View {
                         
                         VStack(alignment: .leading, spacing: 50) {
                             VStack (alignment: .leading) {
-                                Text("Wayan Bandem")
+                                Text(title)
                                     .font(.custom("Urbanist", size: 24))
                                     .foregroundColor(.text1)
                                     .fontWeight(.bold)
-                                Text("Artist")
+                                Text(subtitle)
                                     .font(.custom("Urbanist", size:16))
                                     .foregroundColor(.text1)
                             }
@@ -58,29 +63,43 @@ struct ArtistView : View {
                     }
                     .padding()
                     
-                    VStack (alignment: .leading, spacing: 20) {
-                        Text("Song's Related")
+                    VStack (alignment: .leading, spacing: 12) {
+                        Text("Related Works")
                             .font(.custom("Urbanist", size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.text1)
-                        ForEach(0...3, id: \.self) { i in
+                            .padding(.horizontal)
+                        ForEach(indices.indices, id: \.self) { i in
                             SongCollectionCard()
+                                .padding(.horizontal)
+                            
+                            if i != indices.count - 1 {
+                                Divider()
+                                    .background(Color.white.opacity(0.5))
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
                     
-                    VStack (alignment: .leading, spacing: 20) {
-                        Text("Other Instrument")
+                    Spacer()
+                    
+                    VStack (alignment: .leading, spacing: 12) {
+                        Text("Other Periods")
                             .font(.custom("Urbanist", size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.text1)
-                        ForEach(0...3, id: \.self) { i in
-                            OtherCard(title: "Instrument")
+                            .padding(.horizontal)
+                        ForEach(indices.indices, id: \.self) { i in
+                            OtherCard(title: "Event")
+                                .padding(.horizontal)
+                            
+                            if i != indices.count - 1 {
+                                Divider()
+                                    .background(Color.white.opacity(0.5))
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
                 }
             }
             .background(.dark2)
@@ -89,5 +108,5 @@ struct ArtistView : View {
 }
 
 #Preview {
-    ArtistView()
+    PeriodsView()
 }
