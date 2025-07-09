@@ -89,7 +89,7 @@ struct PlaybackView: View {
                     }
                 }
                 .foregroundColor(.text1)
-                .font(.system(size: 16))
+                .font(.system(size: 20))
                 .fontWeight(.semibold)
                 .frame(maxWidth: 250)
             }
