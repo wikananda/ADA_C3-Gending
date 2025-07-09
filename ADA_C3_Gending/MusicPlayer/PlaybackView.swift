@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PlaybackView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var songProgress: Double = 0.3
     @State private var volumeLevel: Double = 0.8
     @State private var isPlaying: Bool = true
@@ -15,6 +16,16 @@ struct PlaybackView: View {
     var body: some View {
         ZStack {
             VStack (alignment: .center, spacing: 20) {
+                HStack {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "chevron.down")
+                            .font(.system(size: 28))
+                            .foregroundColor(.text1)
+                    }
+                    Spacer()
+                }
+//                .padding()
+                
                 Image(.dummy)
                     .resizable()
                     .frame(width: 375, height: 375)
@@ -32,7 +43,7 @@ struct PlaybackView: View {
                         .foregroundColor(.text1)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                
+
                 VStack(spacing: 4) {
                     Slider(value: $songProgress)
                         .tint(.text1)
@@ -42,8 +53,8 @@ struct PlaybackView: View {
                         Text("03:45")
                     }
                     .font(.custom("Urbanist", size: 12))
-                    .fontWeight(.medium)
-                    .foregroundColor(.text1)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.text1.opacity(0.75))
                 }
                 
                 HStack(spacing: 40) {
@@ -62,7 +73,7 @@ struct PlaybackView: View {
                 }
                 .font(.system(size: 20))
                 .foregroundColor(.text1)
-                .padding(.vertical, 20)
+                .padding(.vertical)
                 
                 HStack {
                     Image(systemName: "speaker.fill")

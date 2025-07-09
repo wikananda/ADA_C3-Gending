@@ -13,6 +13,15 @@ struct BrowseView : View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+    
+    init() {
+        let appearance = UISearchBar.appearance()
+        appearance.searchTextField.font = UIFont(name: "Urbanist", size: 16)
+        appearance.searchTextField.backgroundColor = UIColor.white
+        appearance.searchTextField.textColor = UIColor.white
+        appearance.tintColor = UIColor.white
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -29,7 +38,12 @@ struct BrowseView : View {
             .background(.dark2)
         }
         .navigationTitle("Browse")
-        .searchable(text: $searchText)
+        .tint(.text1)
+        .searchable(text: $searchText) {
+            NavigationLink(destination: RecentSearchesView()) {
+                Text("Recent Searches")
+            }
+        }
     }
 }
 
