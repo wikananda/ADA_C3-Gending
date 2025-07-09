@@ -108,7 +108,7 @@ struct FullSongCard: View {
             HStack (spacing: 25) {
                 Image(.dummy)
                     .resizable()
-                    .frame(width: 80, height: 80)
+                    .frame(width: 65, height: 65)
                     .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
@@ -116,7 +116,7 @@ struct FullSongCard: View {
                     )
                 VStack (alignment: .leading) {
                     Text(song)
-                        .font(.custom("Urbanist", size: 20))
+                        .font(.custom("Urbanist", size: 16))
                         .fontWeight(.bold)
                     Text(artist)
                         .font(.custom("Urbanist", size: 16))

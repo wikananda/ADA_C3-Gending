@@ -70,7 +70,7 @@ struct SongTag: View {
             .background(.primaryRed)
             .foregroundColor(.text1)
             .fontWeight(.medium)
-            .cornerRadius(20)
+            .cornerRadius(5)
     }
 }
 

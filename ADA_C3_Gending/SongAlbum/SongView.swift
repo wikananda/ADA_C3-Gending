@@ -52,7 +52,7 @@ struct SongView : View {
                     .frame(minHeight: 500)
                     
                     VStack (alignment: .leading) {
-                        Text("Popular Recording")
+                        Text("Popular Recordings")
                             .font(.custom("Urbanist", size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.text1)
