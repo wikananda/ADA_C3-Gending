@@ -26,7 +26,7 @@ struct BrowseView : View {
                 }
             }
             .padding(20)
-            .background(.dark1)
+            .background(.dark2)
         }
         .navigationTitle("Browse")
         .searchable(text: $searchText)

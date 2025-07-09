@@ -17,6 +17,10 @@ struct SongCard: View {
                     .resizable()
                     .frame(width: 80, height: 80)
                     .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white.opacity(0.6), lineWidth: 0.5)
+                    )
                 VStack (alignment: .leading) {
                     Text("Merak Angelo")
                         .font(.custom("Urbanist", size: 16))

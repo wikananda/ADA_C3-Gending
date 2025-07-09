@@ -16,17 +16,18 @@ struct ExploreView : View {
                 VStack(spacing: 5) {
                     ForEach(songIndices.indices, id: \.self) { index in
                         SongCard()
+                            .padding(.horizontal)
                         
                         // adding divider
                         if index != songIndices.count - 1 {
                             Divider()
-                                .background(.text1)
+//                                .frame(height: 0.5)
+                                .background(Color.white.opacity(0.5))
                         }
                     }
                 }
-                .padding(.horizontal)
             }
-            .background(.dark1)
+            .background(.dark2)
         }
         .navigationTitle(Text("Trending"))
     }

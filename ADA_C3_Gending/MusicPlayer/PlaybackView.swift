@@ -95,7 +95,7 @@ struct PlaybackView: View {
             }
         }
         .padding()
-        .background(.dark1)
+        .background(.dark2)
     }
 }
 

@@ -76,7 +76,7 @@ struct EventView : View {
                 }
             }
             .ignoresSafeArea(edges: .top)
-            .background(.dark1)
+            .background(.dark2)
         }
     }
 }

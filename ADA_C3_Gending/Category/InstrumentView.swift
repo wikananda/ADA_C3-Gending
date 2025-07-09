@@ -76,7 +76,7 @@ struct InstrumentView : View {
                 }
             }
             .ignoresSafeArea(edges: .top)
-            .background(.dark1)
+            .background(.dark2)
         }
     }
 }
