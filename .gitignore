@@ -83,6 +83,3 @@ fastlane/*.env
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-
-# Xcode Cursor
-.cursor/

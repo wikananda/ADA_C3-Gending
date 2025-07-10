@@ -29,7 +29,7 @@ struct SuaragamView: View {
             // Custom Tab Bar
             CustomTabBar(selectedIndex: $selectedIndex)
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .ignoresSafeArea()
     }
 }
 
