@@ -93,7 +93,7 @@ struct LibraryPlaylistView: View {
 // MARK: CUSTOM COMPONENTS
 struct LibraryArtistCard: View {
     let name: String = "I Wayan Beratha"
-    let titles = ["Composer", "Gong Kebyar", "Gender"]
+    let titles = ["Composer", "Gong Kebyar"]
     var body: some View {
         HStack (spacing: 25){
             Image(.dummy)

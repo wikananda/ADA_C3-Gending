@@ -7,8 +7,14 @@
 
 import SwiftUI
 
-struct ArtistView : View {
+struct EnsembleTypesView : View {
     @State private var isExpanded: Bool = false
+    
+    var title: String = "Gender Wayang"
+    var subtitle: String = "Ensemble Types"
+    
+    let indices = Array(1...4)
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -28,11 +34,11 @@ struct ArtistView : View {
                         
                         VStack(alignment: .leading, spacing: 50) {
                             VStack (alignment: .leading) {
-                                Text("Wayan Bandem")
+                                Text(title)
                                     .font(.custom("Urbanist", size: 24))
                                     .foregroundColor(.text1)
                                     .fontWeight(.bold)
-                                Text("Artist")
+                                Text(subtitle)
                                     .font(.custom("Urbanist", size:16))
                                     .foregroundColor(.text1)
                             }
@@ -58,29 +64,43 @@ struct ArtistView : View {
                     }
                     .padding()
                     
-                    VStack (alignment: .leading, spacing: 20) {
-                        Text("Song's Related")
+                    VStack (alignment: .leading, spacing: 12) {
+                        Text("Related Works")
                             .font(.custom("Urbanist", size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.text1)
+                            .padding(.horizontal)
                         ForEach(0...3, id: \.self) { i in
                             SongCollectionCard()
+                                .padding(.horizontal)
+                            
+                            if i != indices.count - 1 {
+                                Divider()
+                                    .background(Color.white.opacity(0.5))
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
                     
-                    VStack (alignment: .leading, spacing: 20) {
+                    Spacer()
+                    
+                    VStack (alignment: .leading, spacing: 12) {
                         Text("Other Instrument")
                             .font(.custom("Urbanist", size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(.text1)
-                        ForEach(0...3, id: \.self) { i in
+                            .padding(.horizontal)
+                        ForEach(indices.indices, id: \.self) { i in
                             OtherCard(title: "Instrument")
+                                .padding(.horizontal)
+                            
+                            if i != indices.count - 1 {
+                                Divider()
+                                    .background(Color.white.opacity(0.5))
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
                 }
             }
             .background(.dark2)
@@ -89,5 +109,5 @@ struct ArtistView : View {
 }
 
 #Preview {
-    ArtistView()
+    EnsembleTypesView()
 }

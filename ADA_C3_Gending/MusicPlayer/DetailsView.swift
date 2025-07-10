@@ -9,9 +9,20 @@ import SwiftUI
 
 struct DetailsView: View {
     @State var selectedTab: Int = 1
+    
     let tags = ["Magical", "Ritual", "Ceremony", "Gender Wayang", "Tri Sandhya"]
     var body: some View {
         VStack (alignment:. leading, spacing: 10){
+            Spacer(minLength: 5)
+            HStack {
+                Spacer()
+                Rectangle()
+                    .frame(width: 100, height: 5)
+                    .foregroundColor(.tertiaryGreen)
+                    .cornerRadius(5)
+                Spacer()
+            }
+            
             HStack (alignment: .top) {
                 VStack (alignment: .leading, spacing: 25){
                     InfoRow(label: "Name", value: "Merak Angelo")
@@ -99,41 +110,49 @@ struct StoryDetailsView: View {
 // MARK: CUSTOM COMPONENT
 
 struct FullSongCard: View {
+    @State private var isShowingPlayback: Bool = false
+    
     let song: String = "Merak Angelo"
     let artist: String = "Sanggar Semara Gita"
     let duration: String = "6:45"
     
     var body: some View {
-        HStack (alignment: .center) {
-            HStack (spacing: 25) {
-                Image(.dummy)
-                    .resizable()
-                    .frame(width: 65, height: 65)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white.opacity(0.6), lineWidth: 0.5)
-                    )
-                VStack (alignment: .leading) {
-                    Text(song)
-                        .font(.custom("Urbanist", size: 16))
-                        .fontWeight(.bold)
-                    Text(artist)
-                        .font(.custom("Urbanist", size: 16))
-                        .fontWeight(.medium)
+        Button(action: { isShowingPlayback.toggle() } ) {
+            HStack (alignment: .center) {
+                HStack (spacing: 25) {
+                    Image(.dummy)
+                        .resizable()
+                        .frame(width: 65, height: 65)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.white.opacity(0.6), lineWidth: 0.5)
+                        )
+                    
+                    VStack (alignment: .leading) {
+                        Text(song)
+                            .font(.custom("Urbanist", size: 16))
+                            .fontWeight(.bold)
+                        Text(artist)
+                            .font(.custom("Urbanist", size: 16))
+                            .fontWeight(.medium)
+                    }
                 }
-            }
-            .foregroundColor(.text1)
-            
-            Spacer()
-            
-            Text("6:45")
-                .font(.custom("Urbanist", size: 16))
-                .fontWeight(.medium)
                 .foregroundColor(.text1)
+                
+                Spacer()
+                
+                Text("6:45")
+                    .font(.custom("Urbanist", size: 16))
+                    .fontWeight(.medium)
+                    .foregroundColor(.text1)
+            }
+            .frame(maxWidth: .infinity, maxHeight: 75)
+            .cornerRadius(10)
         }
-        .frame(maxWidth: .infinity, maxHeight: 75)
-        .cornerRadius(10)
+        .fullScreenCover(isPresented: $isShowingPlayback) {
+            PlaybackView()
+        }
     }
 }
 

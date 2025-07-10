@@ -29,6 +29,7 @@ struct ExploreView : View {
             }
             .background(.dark2)
         }
+        .tint(.text1)
         .navigationTitle(Text("Trending"))
     }
 }

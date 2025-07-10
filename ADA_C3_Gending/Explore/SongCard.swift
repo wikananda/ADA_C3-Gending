@@ -10,45 +10,47 @@ import SwiftUI
 
 
 struct SongCard: View {
+    @State private var isShowingPlaybackView = false
+
     var body: some View {
-        VStack (alignment: .center) {
-            HStack (spacing: 25) {
-                Image(.dummy)
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white.opacity(0.6), lineWidth: 0.5)
-                    )
-                VStack (alignment: .leading) {
-                    Text("Merak Angelo")
-                        .font(.custom("Urbanist", size: 16))
-                        .fontWeight(.bold)
-                    Text("Sanggar Semara Gita")
-                        .font(.custom("Urbanist", size: 12))
-                        .fontWeight(.medium)
-                    Spacer()
-                    HStack {
-                        SongTag("performance")
-                        SongTag("rindik")
+        Button(action: { isShowingPlaybackView.toggle() }) {
+            VStack (alignment: .center) {
+                HStack (spacing: 25) {
+                    Image(.dummy)
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.white.opacity(0.6), lineWidth: 0.5)
+                        )
+                    VStack (alignment: .leading) {
+                        Text("Merak Angelo")
+                            .font(.custom("Urbanist", size: 16))
+                            .fontWeight(.bold)
+                        Text("Sanggar Semara Gita")
+                            .font(.custom("Urbanist", size: 12))
+                            .fontWeight(.medium)
+                        Spacer()
+                        HStack {
+                            SongTag("performance")
+                            SongTag("rindik")
+                        }
                     }
-                }
-                .foregroundColor(.text1)
-                
-                Spacer()
-                
-                Image(systemName: "play.circle.fill")
-                    .font(.system(size: 36))
                     .foregroundColor(.text1)
-                
+                    
+                    Spacer()
+                    
+                    Image(systemName: "play.circle.fill")
+                        .font(.system(size: 36))
+                        .foregroundColor(.text1)
+                }
             }
+            .padding(.vertical)
         }
-        .frame(maxWidth: .infinity, maxHeight: 75)
-        .padding()
-//        .padding(.horizontal)
-//        .background(Color.black.opacity(0.2))
-        .cornerRadius(10)
+        .fullScreenCover(isPresented: $isShowingPlaybackView) {
+            PlaybackView()
+        }
     }
     
 }

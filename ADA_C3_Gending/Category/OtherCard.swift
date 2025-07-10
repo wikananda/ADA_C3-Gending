@@ -14,8 +14,12 @@ struct OtherCard: View {
         HStack(spacing: 20) {
             Image(.dummy)
                 .resizable()
-                .frame(width: 50, height: 50)
-                .cornerRadius(15)
+                .frame(width: 65, height: 65)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.text1.opacity(0.5), lineWidth: 0.5)
+                )
             Text(title)
                 .font(.custom("Urbanist", size: 16))
                 .fontWeight(.bold)

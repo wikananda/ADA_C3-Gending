@@ -8,36 +8,36 @@
 import SwiftUI
 
 struct CategoryCard: View {
+
     var category: String
     var img: UIImage?
     var body: some View {
-        ZStack (alignment: .bottomLeading) {
-            Image(uiImage: img ?? .dummy)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 175, height: 175)
-            
-            LinearGradient(
-                gradient: Gradient(colors: [.clear, Color.black.opacity(0.7)]),
-                startPoint: .center,
-                endPoint: .bottom
-            )
-            
-            Text(category)
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.white)
-                .padding([.leading, .bottom], 15)
-            
-//            Color.black.opacity(0.4)
-            
-//            Text(category)
-//                .font(.system(size: 32, weight: .bold))
-//                .foregroundColor(.white)
+        NavigationLink(destination: CategoryDetailView(category: category)) {
+            ZStack (alignment: .bottomLeading) {
+                Image(uiImage: img ?? .dummy)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 175, height: 125)
                 
+                LinearGradient(
+                    gradient: Gradient(colors: [.clear, Color.black.opacity(0.7)]),
+                    startPoint: .center,
+                    endPoint: .bottom
+                )
+                
+                Text(category)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding([.leading, .bottom], 15)
+            }
+            .frame(width: 175, height: 125)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.white.opacity(0.5), lineWidth: 0.5)
+            )
         }
-        .frame(width: 175, height: 175)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-//        .padding(20)
+        .buttonStyle(.plain)
     }
 }
 
